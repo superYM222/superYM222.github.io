@@ -1,0 +1,101 @@
+
+#heart {
+    position: relative;
+    display: flex;
+    width: 100px;
+    height: 100px;
+    cursor:pointer; 
+    background-color: rgb(214, 67, 133);
+    transform: rotate(-45deg);
+    margin: 50px;
+    transition:all .5s ease-in-out;
+    z-index: 1;
+    
+}
+
+#heart::before,
+#heart::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color:  rgb(214, 67, 133);
+    border-radius: 50%;
+    z-index: 1;
+    transition: all .5s ease-in-out;
+}
+
+#heart::before {
+    top: -50px;
+    left: 0;
+}
+
+#heart::after {
+    top: 0;
+    left: 50px; 
+}
+#heart-line{
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 40%;
+    left: 60%;
+    width: 110px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(255,101,47, .2);
+    transform: translate(-50% ,-50%) rotate(45deg);
+    z-index: 2;
+    transition: all .3s ease-in-out;
+ 
+}
+#heart-line::before,
+#heart-line::after{
+    content: '';
+    position: absolute;
+    display: flex;
+    width: 90px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: white;
+    transition: all .5s ease-in-out;
+   
+}
+#heart-line::before{
+    transform: translateY(-25px); 
+   
+    
+}
+#heart-line::after{
+    transform: translateX(25px); 
+    top:25px;
+    left: -12%;
+  
+}
+
+#heart.open
+#heart-line{
+ 
+
+    /* transform: translateX(-100px); */
+    background: transparent;
+    box-shadow: none;
+
+
+}
+#heart.open #heart-line::before{
+    transform: rotate(45deg) translate(0,0); 
+    width: 110px;
+    top: 0;
+    /* left: 0; */
+    
+}
+#heart.open #heart-line::after{
+    transform: rotate(-45deg) translate(0,0);
+    width: 110px;
+    top: 0;
+    left: 0;
+}
